@@ -1,0 +1,8 @@
+# Coding-History
+for study
+n = input()#获取输入
+sum = 0
+while n != "":#当n不等于空
+    sum += eval(n)
+    n = input()
+print(sum)
