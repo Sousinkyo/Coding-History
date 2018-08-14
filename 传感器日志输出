@@ -1,0 +1,7 @@
+f = open("sensor-data-1k.txt","r")#使用只读方式打开文件
+cnt = 0#设定计数
+for line in f:#遍历循环
+    cnt += 1#遍历计数
+    if cnt % 100 == 0:#确认计数行数
+        print(lien,end = "")#输出指定行
+f.close()#关闭文件
