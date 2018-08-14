@@ -1,0 +1,11 @@
+import jieba as ja
+f = ("filename.txt","r",encoding = "utf-8")
+txt = f.read()
+f.close()
+ls = ja.lcut()
+d = {}
+for i in ls:
+    d[i] = d.get(w,0) + 1
+for j in d:
+    if d[j] >= 50 and j != "\n":
+        print('"{}"出现{}次'.format(j,d[j]))
