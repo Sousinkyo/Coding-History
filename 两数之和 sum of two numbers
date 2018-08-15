@@ -1,0 +1,23 @@
+class Solution:
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        #方法1
+        #result = [] 设定一个结果列表
+        #for i in range(len(nums)): 设定随机数i在nums序列中循环
+            #for j in range(i+1,len(nums)):设定随机数j在排除i的情况下在nums序列中循环
+                #if nums[i]+nums[j] == target: 如果列表中的被索引的两数相加等于目标值
+                    #result.append(i) 将i的序列数添加进结果列表中
+                    #result.append(j) 将j的序列数添加进结果列表中
+                    #return result 返回结果列表
+        
+        n = len(nums)#设定n等于nums的序列数
+        dd = {nums[i]:i for i in range(n)}#设定字典键值对i：i 并将i放入范围n中遍历
+        for i in range(n-1):#将i在范围n-1中遍历
+            tar = target - nums[i]#用目标值与字典i的值相减求差
+            if tar in dd and i != dd[tar]:#如果另一个数在字典中并且不等于i
+                return[i,dd[tar]]#输出两数的序列
+        return null
