@@ -1,0 +1,16 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        dd = {}#建立字典
+        maxlength = nowlength = 0#将最大长度以及初始长度设定为0
+        for i in range(len(s)):#将i以字符串长度-1循环长度
+            if s[i] in dd and i - dd[s[i]] -1 <= nowlength:#如果i已经被遍历且加入进字典，同时i所在位置-i在字典中位置小于或等于现在遍历长度
+                if maxlength < nowlength:#如果最大长度小于现在循环长度
+                    maxlength = nowlength#将最大长度等同于现在长度
+                nowlength = i - dd[s[i]] -1#现在长度等于i-相同字符所出现的位置长度-1
+            nowlength = nowlength + 1#每遍历一次长度加1
+            dd[s[i]] = i#将{s[i]:i}加入字典
+        return maxlength if nowlength < maxlength else nowlength#如果现在值小于最大值，则返回最大值；或者，直接返回现在值
