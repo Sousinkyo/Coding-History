@@ -1,0 +1,8 @@
+ls = eval(input())
+try:
+    print(len(set(ls)))
+except:    #无法用set去重
+    count = 0
+    for item in ls:
+        count += 1 / ls.count(item)
+    print(round(count))
